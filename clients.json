@@ -113,15 +113,58 @@
       "firstName": "Mr. Ashen",
       "fullName": "Mr. Ashen Bandara",
       "company": "Arventics",
-      "balanceDue": 3500,
+      "balanceDue": 11000,
       "nextDelivery": "OCT 18",
       "nextMeeting": {
-        "date": "",
-        "time": "",
-        "note": ""
+        "date": "-",
+        "time": "-",
+        "note": "-"
       },
-      "projects": [],
-      "milestones": []
+      "projects": [
+        {
+          "title": "Fighter Connect Video 01",
+          "desc": "16:9 Horizontal intro Video for Fighter Connect",
+          "progress": 1,
+          "status": "In progress",
+          "due": "OCT 18 Sunday"
+        },
+        {
+          "title": "Fighter Connect Video 02",
+          "desc": "9:16 Vertical intro Video for Fighter Connect",
+          "progress": 1,
+          "status": "In progress",
+          "due": "OCT 18 Sunday"
+        },
+        {
+          "title": "My Pilot Logbook Video 01",
+          "desc": "16:9 Horizontal intro Video for My Pilot Logbook with Project Files",
+          "progress": 1,
+          "status": "In progress",
+          "due": "OCT 24 Saturday"
+        }
+      ],
+      "milestones": [
+        {
+          "title": "Fighter Connect - Animation Frames",
+          "date": "OCT 12 (Approved)",
+          "state": "done"
+        },
+        {
+          "title": "Fighter Connect - Voice Over",
+          "date": "Approved",
+          "state": "done"
+        },
+        {
+          "title": "My Pilot Logbook - Storyboard",
+          "date": "OCT 17",
+          "state": "now"
+        },
+        {
+          "title": "My Pilot Logbook - Product UI design and motion graphics",
+          "date": "OCT 20",
+          "state": "todo"
+        }
+      ]
     }
   ]
 }
