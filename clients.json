@@ -124,21 +124,21 @@
         {
           "title": "Fighter Connect Video 01",
           "desc": "16:9 Horizontal intro Video for Fighter Connect",
-          "progress": 1,
+          "progress": 70,
           "status": "In progress",
           "due": "OCT 18 Sunday"
         },
         {
           "title": "Fighter Connect Video 02",
           "desc": "9:16 Vertical intro Video for Fighter Connect",
-          "progress": 1,
+          "progress": 50,
           "status": "In progress",
           "due": "OCT 18 Sunday"
         },
         {
           "title": "My Pilot Logbook Video 01",
           "desc": "16:9 Horizontal intro Video for My Pilot Logbook with Project Files",
-          "progress": 1,
+          "progress": 10,
           "status": "In progress",
           "due": "OCT 24 Saturday"
         }
@@ -155,12 +155,12 @@
           "state": "done"
         },
         {
-          "title": "My Pilot Logbook - Storyboard",
+          "title": "My Pilot Logbook - Storyboard  :",
           "date": "OCT 17",
           "state": "now"
         },
         {
-          "title": "My Pilot Logbook - Product UI design and motion graphics",
+          "title": "My Pilot Logbook - Product UI design",
           "date": "OCT 20",
           "state": "todo"
         }
