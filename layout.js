@@ -9,7 +9,7 @@
     name: "Dumiru",
     accent: "Jayasekara",
     homeUrl: "/",
-    bookingUrl: "https://meeting.lk"
+    bookingUrl: "https://dumiru.me"
   };
 
   // Menu links (use /#section to point to sections on the homepage)
