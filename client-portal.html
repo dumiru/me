@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Client Portal | Dumiru Jayasekara</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="client-portal.css">
+</head>
+<body>
+
+<!-- Navigation bar is injected here by layout.js -->
+<div id="site-nav"></div>
+
+<!-- SIGN-IN -->
+<section id="login">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="login-box glass fade">
+    <div class="logo">Dumiru <span>Jayasekara</span></div>
+    <span class="eyebrow">Client Portal</span>
+    <p class="muted">Sign in with the username and password you received to view your project progress.</p>
+    <form id="loginForm" autocomplete="on">
+      <div class="field">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+      </div>
+      <button class="btn btn-orange" type="submit">Sign in</button>
+      <div class="form-error" id="loginError" role="alert"></div>
+    </form>
+  </div>
+</section>
+
+<!-- OVERVIEW (read-only) -->
+<main id="portal" class="hidden">
+  <div class="welcome fade">
+    <span class="eyebrow">Overview</span>
+    <h1 id="greeting"></h1>
+    <p class="muted" id="company"></p>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="grid">
+    <section class="card fade d2">
+      <div class="head">
+        <h2>Active projects</h2>
+        <p class="muted">Current progress across your work</p>
+      </div>
+      <div id="projects"></div>
+    </section>
+
+    <div class="stack">
+      <section class="card meet fade d2">
+        <span class="eyebrow">Next meeting</span>
+        <div class="when" id="nextMeeting"></div>
+        <p class="muted" id="nextNote"></p>
+      </section>
+
+      <section class="card fade d3">
+        <div class="head">
+          <h2>Milestones</h2>
+          <p class="muted" id="milestoneSummary"></p>
+        </div>
+        <ol class="timeline" id="milestones"></ol>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- Footer is injected here by layout.js -->
+<div id="site-footer"></div>
+
+<script src="layout.js"></script>
+<script src="client-portal.js"></script>
+</body>
+</html>

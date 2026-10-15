@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page Not Found | Dumiru Jayasekara</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#ffffff;
+    --paper:#fafafa;
+    --ink:#111111;
+    --muted:#6b6b6b;
+    --line:rgba(0,0,0,.08);
+    --orange:#ff6a00;
+    --orange-soft:#fff1e8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:var(--paper);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    min-height:100vh;padding:24px;text-align:center;overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;z-index:-1}
+  .b1{width:360px;height:360px;background:#ffd9bd;top:-100px;left:-120px}
+  .b2{width:300px;height:300px;background:var(--orange-soft);bottom:-80px;right:-80px}
+
+  .brand{font-size:18px;font-weight:500;margin-bottom:36px}
+  .brand span{color:var(--orange)}
+
+  .card{
+    width:100%;max-width:520px;padding:48px 36px;border-radius:28px;
+    background:rgba(255,255,255,.55);
+    -webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);
+    border:1px solid rgba(255,255,255,.7);
+    box-shadow:0 10px 36px rgba(0,0,0,.06),inset 0 1px 0 rgba(255,255,255,.9);
+    animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .code{
+    font-size:clamp(72px,16vw,120px);font-weight:500;line-height:1;letter-spacing:-.04em;
+    color:var(--ink);
+  }
+  .code span{color:var(--orange)}
+  h1{font-size:clamp(22px,4vw,28px);font-weight:500;margin:14px 0 10px}
+  p{color:var(--muted);font-size:15px;max-width:380px;margin:0 auto}
+
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;padding:12px 24px;border-radius:999px;
+    font-size:15px;font-weight:500;border:1px solid transparent;transition:.3s ease;
+  }
+  .btn-orange{background:var(--orange);color:#fff;box-shadow:0 8px 22px rgba(255,106,0,.25)}
+  .btn-orange:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,106,0,.35)}
+  .btn-ghost{border-color:var(--line);background:#fff;color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+
+  footer{position:absolute;bottom:20px;font-size:13px;color:var(--muted)}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @media (max-width:520px){
+    .card{padding:36px 24px}
+    .actions .btn{width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+
+  <div class="brand">Dumiru <span>Jayasekara</span></div>
+
+  <main class="card">
+    <div class="code">4<span>0</span>4</div>
+    <h1>This page could not be found</h1>
+    <p>The link may be broken, or the page may have moved. Let's get you back on track.</p>
+    <div class="actions">
+      <a href="/" class="btn btn-orange">Back to home</a>
+      <a href="/client-portal" class="btn btn-ghost">Client Portal</a>
+    </div>
+  </main>
+
+  <footer>&copy; <span id="year"></span> Dumiru Jayasekara</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

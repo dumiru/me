@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Admin Portal | Dumiru Jayasekara</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="client-portal.css">
+<link rel="stylesheet" href="admin-portal.css">
+</head>
+<body>
+
+<header class="admin-top">
+  <div class="brand">Dumiru <span>Admin</span></div>
+  <div class="top-actions">
+    <span class="badge hidden" id="dirtyBadge">Unpublished changes</span>
+    <button class="btn btn-ghost btn-sm hidden" id="logout">Sign out</button>
+  </div>
+</header>
+
+<!-- ADMIN SIGN-IN -->
+<section id="login">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="login-box glass fade">
+    <div class="logo">Dumiru <span>Admin</span></div>
+    <span class="eyebrow">Admin Portal</span>
+    <p class="muted">Sign in to manage client accounts and content.</p>
+    <form id="loginForm" autocomplete="on">
+      <div class="field">
+        <label for="username">Admin username</label>
+        <input id="username" type="text" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="password">Admin password</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+      </div>
+      <button class="btn btn-orange" type="submit">Sign in</button>
+      <div class="form-error" id="loginError" role="alert"></div>
+    </form>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<main id="dashboard" class="hidden">
+  <div class="toolbar">
+    <div>
+      <span class="eyebrow">Client accounts</span>
+      <h1>Manage clients</h1>
+      <p class="muted" id="storeNote"></p>
+    </div>
+    <div class="tools">
+      <button class="btn btn-orange btn-sm" id="newBtn">+ Add client</button>
+      <button class="btn btn-ghost btn-sm" id="downloadBtn">Download clients.json</button>
+      <label class="btn btn-ghost btn-sm" for="importFile">Replace clients.json</label>
+      <input type="file" id="importFile" accept=".json,application/json" class="hidden">
+      <button class="btn btn-ghost btn-sm" id="resetBtn">Reload from server</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside class="card side">
+      <div class="side-head"><b>Clients</b><span class="muted" id="count"></span></div>
+      <input id="search" type="search" placeholder="Search name, company or username">
+      <div id="clientList" class="list"></div>
+    </aside>
+    <section class="card editor" id="editor"></section>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="admin-portal.js"></script>
+</body>
+</html>

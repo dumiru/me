@@ -1,0 +1,77 @@
+{
+  "_help": "HOW TO EDIT: Change any text in quotes, or add/remove items. Keep the commas and quotes exactly as they are. To ADD A CLIENT, copy one whole block between { and }, paste it after the last client (put a comma after the previous }), then change username, password and details. Milestone state must be one of: done, now, todo. Progress is a number from 0 to 100. Save the file and refresh the portal. SECURITY: anyone who can open this file can read the passwords, so use real authentication before going live.",
+
+  "settings": {
+    "currency": "LKR",
+    "portalTitle": "Client Portal"
+  },
+
+  "clients": [
+    {
+      "username": "nadeesha",
+      "password": "sample123",
+      "firstName": "Nadeesha",
+      "fullName": "Nadeesha Perera",
+      "company": "Local Retail Co.",
+      "balanceDue": 120000,
+      "nextDelivery": "15 Nov",
+      "nextMeeting": {
+        "date": "Thu, 22 Oct",
+        "time": "10:30 AM",
+        "note": "Logo concept review. 30 minutes on Google Meet."
+      },
+      "projects": [
+        {
+          "title": "Brand identity refresh",
+          "desc": "Logo, colour system, typography and packaging templates.",
+          "progress": 68,
+          "status": "In progress",
+          "due": "Due 15 Nov 2026"
+        },
+        {
+          "title": "Website redesign",
+          "desc": "Homepage, product pages and client-facing content.",
+          "progress": 35,
+          "status": "In progress",
+          "due": "Due 10 Dec 2026"
+        }
+      ],
+      "milestones": [
+        { "title": "Discovery & brief", "date": "12 Sep 2026", "state": "done" },
+        { "title": "Moodboard & direction", "date": "26 Sep 2026", "state": "done" },
+        { "title": "Logo concepts", "date": "08 Oct 2026", "state": "done" },
+        { "title": "Refinement & colour system", "date": "In progress", "state": "now" },
+        { "title": "Final delivery", "date": "15 Nov 2026", "state": "todo" }
+      ]
+    },
+    {
+      "username": "kasun",
+      "password": "welcome456",
+      "firstName": "Kasun",
+      "fullName": "Kasun Wijesinghe",
+      "company": "Harbour Tech",
+      "balanceDue": 0,
+      "nextDelivery": "30 Nov",
+      "nextMeeting": {
+        "date": "Mon, 26 Oct",
+        "time": "02:00 PM",
+        "note": "Homepage wireframe walkthrough. 45 minutes on Google Meet."
+      },
+      "projects": [
+        {
+          "title": "Product launch landing page",
+          "desc": "Single-page site with hero, features, pricing and sign-up flow.",
+          "progress": 85,
+          "status": "In progress",
+          "due": "Due 05 Nov 2026"
+        }
+      ],
+      "milestones": [
+        { "title": "Brief & research", "date": "01 Oct 2026", "state": "done" },
+        { "title": "Wireframes", "date": "12 Oct 2026", "state": "done" },
+        { "title": "Visual design", "date": "In progress", "state": "now" },
+        { "title": "Build & launch", "date": "30 Nov 2026", "state": "todo" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+/* ==========================================================
+   CLIENT PORTAL STYLES
+   Theme colours are at the top. Edit them here to change the look.
+   ========================================================== */
+
+/* 1. THEME */
+:root{
+  --white:#ffffff;
+  --paper:#fafafa;
+  --ink:#111111;
+  --muted:#6b6b6b;
+  --line:rgba(0,0,0,.08);
+  --orange:#ff6a00;
+  --orange-soft:#fff1e8;
+  --green:#16a34a;
+  --radius:20px;
+  --nav-h:72px;
+}
+
+/* 2. BASE */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Poppins',system-ui,sans-serif;font-weight:400;color:var(--ink);
+  background:var(--paper);line-height:1.6;font-size:15px;min-height:100vh;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.hidden{display:none!important}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.glass{
+  background:rgba(255,255,255,.55);
+  -webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 10px 36px rgba(0,0,0,.06),inset 0 1px 0 rgba(255,255,255,.9);
+}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.eyebrow{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+h1,h2,h3{font-weight:500;letter-spacing:-.01em;line-height:1.25}
+h2{font-size:18px;margin-bottom:4px}
+.muted{color:var(--muted);font-size:14px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;
+  font-size:15px;font-weight:500;border:1px solid transparent;cursor:pointer;transition:.3s ease;white-space:nowrap;
+}
+.btn-orange{background:var(--orange);color:#fff;box-shadow:0 8px 22px rgba(255,106,0,.25)}
+.btn-orange:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,106,0,.35)}
+.badge{display:inline-block;font-size:12px;padding:4px 12px;border-radius:999px;background:var(--orange-soft);color:var(--orange);font-weight:500;white-space:nowrap}
+.badge.done{background:#e9f9ee;color:var(--green)}
+.fade{animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) both}
+.d2{animation-delay:.2s}.d3{animation-delay:.3s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* 3. NAVIGATION (shared with the main website) */
+.site-header{position:fixed;top:14px;left:0;right:0;z-index:100}
+.nav{
+  height:var(--nav-h);max-width:1200px;margin:0 auto;padding:0 14px 0 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  border-radius:999px;width:calc(100% - 28px);
+}
+.brand{font-weight:500;font-size:18px;white-space:nowrap;letter-spacing:-.01em}
+.brand span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:14px;color:var(--ink);position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--orange);transition:.3s}
+.nav-links a:hover{color:var(--orange)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:10px 18px;font-size:14px;white-space:nowrap}
+.burger{display:none;width:44px;height:44px;border:0;background:transparent;cursor:pointer;position:relative}
+.burger span{position:absolute;left:12px;right:12px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+.burger span:nth-child(1){top:16px}
+.burger span:nth-child(2){top:22px}
+.burger span:nth-child(3){top:28px}
+.burger.open span:nth-child(1){top:22px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){top:22px;transform:rotate(-45deg)}
+.mobile-menu{
+  position:fixed;top:96px;left:14px;right:14px;z-index:99;border-radius:var(--radius);
+  padding:14px;display:none;flex-direction:column;transform:translateY(-10px);opacity:0;transition:.3s ease;
+}
+.mobile-menu.open{display:flex;opacity:1;transform:none}
+.mobile-menu a{padding:14px 12px;border-radius:12px;font-size:16px}
+.mobile-menu a:hover{background:var(--orange-soft);color:var(--orange)}
+.mobile-menu .btn{margin-top:8px;justify-content:center}
+
+/* 4. FOOTER (shared with the main website) */
+.site-footer{padding:60px 0 30px;border-top:1px solid var(--line);background:var(--white);margin-top:60px}
+.foot{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:40px}
+.foot .brand{font-size:22px}
+.foot p{color:var(--muted);font-size:14px;max-width:300px;margin-top:10px}
+.foot-links{display:flex;gap:50px;flex-wrap:wrap}
+.foot-links h5{font-size:13px;font-weight:500;color:var(--orange);margin-bottom:12px;letter-spacing:.08em;text-transform:uppercase}
+.foot-links a{display:block;font-size:14px;color:var(--muted);margin-bottom:8px}
+.foot-links a:hover{color:var(--orange)}
+.copy{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted);padding-top:24px;border-top:1px solid var(--line)}
+
+/* 5. SIGN-IN */
+#login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 24px 60px;position:relative;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;z-index:-1}
+.b1{width:360px;height:360px;background:#ffd9bd;top:-80px;left:-100px}
+.b2{width:280px;height:280px;background:var(--orange-soft);bottom:-60px;right:-60px}
+.login-box{width:100%;max-width:420px;padding:40px 34px;border-radius:28px;text-align:center}
+.login-box .logo{font-size:20px;font-weight:500}
+.login-box .logo span{color:var(--orange)}
+.login-box .eyebrow{display:block;margin:10px 0 8px}
+.login-box p.muted{margin-bottom:26px}
+.field{text-align:left;margin-bottom:14px}
+.field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+.field input{width:100%;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:#fff;outline:0;font-size:15px;transition:.2s}
+.field input:focus{border-color:var(--orange);box-shadow:0 0 0 4px rgba(255,106,0,.1)}
+.login-box .btn{width:100%;margin-top:8px}
+.form-error{color:#dc2626;font-size:13px;min-height:20px;margin-top:12px}
+
+/* 6. PORTAL OVERVIEW (read-only) */
+#portal{max-width:1200px;margin:0 auto;padding:130px 24px 40px}
+.welcome{margin-bottom:30px}
+.welcome h1{font-size:clamp(28px,4vw,40px)}
+.welcome h1 span{color:var(--orange)}
+.welcome .muted{margin-top:8px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.stat{padding:22px}
+.stat small{font-size:13px;color:var(--muted)}
+.stat b{display:block;font-size:30px;font-weight:500;line-height:1.2;margin-top:4px}
+.stat b em{font-style:normal;color:var(--orange)}
+.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:start}
+.stack{display:flex;flex-direction:column;gap:20px}
+.head{margin-bottom:20px}
+.project{padding:22px;border:1px solid var(--line);border-radius:18px;background:#fff;margin-bottom:14px}
+.project:last-child{margin-bottom:0}
+.project-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:6px}
+.project h3{font-size:17px}
+.project p{font-size:14px;color:var(--muted);margin-bottom:16px}
+.progress{height:8px;border-radius:999px;background:var(--paper);overflow:hidden;border:1px solid var(--line)}
+.progress div{height:100%;background:var(--orange);border-radius:999px;width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.meta-row{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:8px;gap:10px;flex-wrap:wrap}
+.meet .when{font-size:26px;font-weight:500;line-height:1.2;margin:10px 0 4px}
+.meet .when span{color:var(--orange)}
+.timeline{list-style:none;position:relative}
+.timeline li{position:relative;padding:0 0 22px 28px;font-size:14px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:0;top:5px;width:12px;height:12px;border-radius:50%;border:2px solid var(--orange);background:#fff}
+.timeline li.done::before{background:var(--orange)}
+.timeline li::after{content:"";position:absolute;left:6px;top:21px;bottom:0;width:1px;background:var(--line)}
+.timeline li:last-child::after{display:none}
+.timeline li.done{color:var(--ink)}
+.timeline li.todo{color:var(--muted)}
+.timeline li.now{color:var(--ink)}
+.timeline .now-tag{color:var(--orange);font-weight:500}
+.timeline small{display:block;color:var(--muted);font-size:12px}
+
+/* 7. RESPONSIVE */
+@media (max-width:1100px){.nav-links{gap:20px}}
+@media (max-width:960px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:block}
+  .grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .foot-links{gap:30px}
+}
+@media (max-width:720px){
+  :root{--nav-h:64px}
+  .site-header{top:10px}
+  .nav{padding:0 10px 0 18px;width:calc(100% - 20px)}
+  .wrap{padding:0 18px}
+  #portal{padding:110px 18px 30px}
+  #login{padding:110px 18px 50px}
+  .card{padding:20px}
+  .stat{padding:18px}
+  .stat b{font-size:24px}
+  .project-head{flex-direction:column;gap:8px}
+  .login-box{padding:32px 22px}
+  .site-footer{padding:44px 0 24px}
+}
+@media (max-width:400px){
+  .brand{font-size:16px}
+  .stats{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
