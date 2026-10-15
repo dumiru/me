@@ -36,7 +36,7 @@
     { label: "Contact", href: "/#contact" }
   ];
 
-  const FOOTER_BLURB = "Brand designer and creative director building clear, memorable brands and websites.";
+  const FOOTER_BLURB = "UI & Motion Designer";
 
   const ext = (item) => (item.external ? ' target="_blank" rel="noopener"' : "");
 
