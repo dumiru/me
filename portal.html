@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Portal | Dumiru Jayasekara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--o:#FF6B00;--o2:#FF9A3D;--k:#0B0B0B;--w:#fff;--m:#6B6B6B;--l:rgba(11,11,11,.09)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;background:#FAFAFA;color:var(--k);min-height:100vh;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;width:600px;height:600px;border-radius:50%;background:var(--o);filter:blur(150px);opacity:.15;top:-200px;right:-200px;pointer-events:none}
+.wrap{max-width:1200px;margin:auto;padding:0 24px 80px;position:relative}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.8),rgba(255,255,255,.45));backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%);border:1px solid rgba(255,255,255,.85);box-shadow:0 20px 50px -20px rgba(11,11,11,.18),inset 0 1px 0 #fff;border-radius:24px}
+.top{position:sticky;top:14px;margin:14px auto 0;width:min(1200px,calc(100% - 32px));display:flex;justify-content:space-between;align-items:center;padding:12px 12px 12px 22px;border-radius:999px;z-index:10}
+.logo{font-weight:700;display:flex;align-items:center;gap:8px;font-size:17px}
+.logo b{width:30px;height:30px;border-radius:10px;background:var(--o);color:#fff;display:grid;place-items:center;font-size:14px}
+.logo small{font-weight:500;color:var(--m);font-size:13px;margin-left:4px}
+.hidden{display:none!important}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--o);display:inline-block;margin-bottom:12px}
+h2{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+h2 em,h3 em{font-style:normal;color:var(--o)}
+h3{font-size:19px;font-weight:600;margin-bottom:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:999px;border:none;font:600 14px 'Poppins',sans-serif;cursor:pointer;transition:transform .3s,box-shadow .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn-o{background:var(--o);color:#fff;box-shadow:0 14px 30px -10px rgba(255,107,0,.7)}
+.btn-k{background:var(--k);color:#fff}
+.btn-line{background:transparent;border:1px solid var(--l);color:var(--k)}
+input,select,textarea{font:400 14px 'Poppins',sans-serif;padding:13px 16px;border-radius:14px;border:1px solid var(--l);background:#fff;width:100%;outline:none;transition:border .3s,box-shadow .3s;color:var(--k)}
+input:focus,select:focus,textarea:focus{border-color:var(--o);box-shadow:0 0 0 4px rgba(255,107,0,.12)}
+textarea{min-height:90px;resize:vertical}
+.view{animation:fade .8s cubic-bezier(.2,.7,.2,1) both}
+.view:nth-child(n){animation-delay:var(--d,0s)}
+@keyframes fade{from{opacity:0;transform:translateY(24px)}}
+
+/* login */
+.login-wrap{min-height:70vh;display:grid;place-items:center;padding-top:40px}
+.login{width:min(440px,100%);padding:44px}
+.login form{display:grid;gap:12px;margin-top:26px}
+.err{color:#d13b00;font-size:13px;min-height:18px}
+
+/* client dashboard */
+.hello{padding:36px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:18px}
+.hello h2{font-size:clamp(26px,3.4vw,40px)}
+.pill{display:inline-block;padding:9px 18px;border-radius:999px;background:var(--k);color:#fff;font-size:13px;font-weight:600}
+.pill.o{background:var(--o)}
+.dash{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:18px}
+.card{padding:30px}
+.card.dark{background:var(--k);color:#fff;border:none}
+.c-proj{grid-column:span 7}
+.c-meet{grid-column:span 5}
+.c-ms{grid-column:span 6}
+.c-up{grid-column:span 6}
+.big{font-size:72px;font-weight:800;letter-spacing:-.04em;color:var(--o);line-height:1}
+.bar{height:12px;border-radius:99px;background:rgba(11,11,11,.07);overflow:hidden;margin-top:20px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--o),var(--o2));border-radius:99px;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.meet-date{font-size:34px;font-weight:700;margin-top:10px;letter-spacing:-.02em}
+.checks{list-style:none;display:grid;gap:14px}
+.checks li{display:flex;align-items:center;gap:14px;font-size:15px}
+.dot{width:24px;height:24px;border-radius:8px;border:2px solid var(--l);display:grid;place-items:center;font-size:12px;color:#fff;flex:none}
+.dot.on{background:var(--o);border-color:var(--o)}
+.done{color:var(--m);text-decoration:line-through}
+.feed{display:grid;gap:16px}
+.feed div{border-left:3px solid var(--o);padding-left:14px}
+.feed small{color:var(--m);font-size:12px}
+.feed p{font-size:14px;margin-top:4px;line-height:1.6}
+
+/* admin */
+.a-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin:18px 0 24px}
+.acts{display:flex;gap:10px;flex-wrap:wrap}
+.a-grid{display:grid;grid-template-columns:300px 1fr;gap:18px;align-items:start}
+.list{padding:12px;display:grid;gap:8px}
+.cl{text-align:left;padding:14px 16px;border-radius:16px;border:none;background:transparent;cursor:pointer;font:600 15px 'Poppins',sans-serif;color:var(--k);transition:.3s}
+.cl span{display:block;font-size:12px;font-weight:400;color:var(--m);margin-top:2px}
+.cl:hover{background:rgba(255,107,0,.08)}
+.cl.on{background:var(--k);color:#fff}
+.cl.on span{color:rgba(255,255,255,.6)}
+.editor{padding:30px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0 26px}
+.fields label{display:grid;gap:8px;font-size:13px;font-weight:600;color:var(--m)}
+.fields .full{grid-column:1/-1}
+.editor h4{font-size:15px;margin:28px 0 12px}
+.ms-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--l);font-size:14px}
+.ms-row span{flex:1}
+.ms-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--o);flex:none;padding:0}
+.x{border:none;background:none;color:var(--m);cursor:pointer;font-size:16px}
+.x:hover{color:#d13b00}
+.row{display:flex;gap:10px;margin-top:12px;align-items:center}
+.row input{flex:1}
+.banner{background:var(--o);color:#fff;padding:10px 16px;border-radius:14px;font-size:13px;font-weight:500;margin-bottom:18px}
+.hist{color:var(--m);font-size:13px;line-height:1.8}
+#toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,140px);background:var(--k);color:#fff;padding:12px 22px;border-radius:999px;font-size:14px;transition:transform .5s cubic-bezier(.2,.7,.2,1);z-index:50}
+#toast.show{transform:translate(-50%,0)}
+@media(max-width:860px){.c-proj,.c-meet,.c-ms,.c-up{grid-column:1/-1}.a-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.fields{grid-template-columns:1fr}.big{font-size:56px}}
+</style>
+</head>
+<body>
+
+<header class="top glass">
+  <a class="logo"><b>D</b>Dumiru Jayasekara <small>Client Portal</small></a>
+  <div style="display:flex;gap:12px;align-items:center">
+    <span id="who" style="font-size:13px;color:var(--m);font-weight:500"></span>
+    <button id="logoutBtn" class="btn btn-line hidden" style="padding:9px 18px">Log out</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="loginView" class="login-wrap">
+    <div class="glass login view">
+      <span class="eyebrow">Secure access</span>
+      <h2>Sign in to your <em>portal</em></h2>
+      <form id="loginForm">
+        <input id="u" placeholder="Username" autocomplete="username" required>
+        <input id="p" type="password" placeholder="Password" autocomplete="current-password" required>
+        <button class="btn btn-o" type="submit">Sign in</button>
+        <div id="loginErr" class="err"></div>
+      </form>
+    </div>
+  </div>
+  <div id="clientView" class="hidden"></div>
+  <div id="adminView" class="hidden"></div>
+</main>
+<div id="toast"></div>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = d => d ? new Date(d + 'T00:00:00').toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'}) : '';
+
+let DB = null, draft = false, sel = 0;
+let session = JSON.parse(sessionStorage.getItem('dj_session') || 'null');
+
+function toast(msg){
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+/* ---------- data (data.json in same folder) ---------- */
+async function fetchData(){
+  const r = await fetch('data.json', {cache:'no-store'});
+  if (!r.ok) throw new Error('not found');
+  return r.json();
+}
+function save(){ localStorage.setItem('dj_draft', JSON.stringify(DB)); draft = true; }
+
+async function boot(){
+  try { DB = await fetchData(); }
+  catch(e){
+    $('#loginErr').textContent = 'Could not read data.json. Open the site through a local server or your web host (see the note in the reply).';
+    return;
+  }
+  const d = localStorage.getItem('dj_draft');
+  if (d){ DB = JSON.parse(d); draft = true; }
+  route();
+}
+
+/* ---------- login ---------- */
+$('#loginForm').addEventListener('submit', e => {
+  e.preventDefault();
+  if (!DB) return;
+  const u = $('#u').value.trim(), p = $('#p').value;
+  let s = null;
+  if (u === DB.admin.username && p === DB.admin.password) s = {role:'admin'};
+  else {
+    const c = DB.clients.find(x => x.username === u && x.password === p);
+    if (c) s = {role:'client', id:c.id};
+  }
+  if (!s){ $('#loginErr').textContent = 'Incorrect username or password.'; return; }
+  session = s;
+  sessionStorage.setItem('dj_session', JSON.stringify(s));
+  $('#loginErr').textContent = '';
+  $('#loginForm').reset();
+  route();
+});
+
+function logout(){
+  session = null; sessionStorage.removeItem('dj_session'); route();
+}
+$('#logoutBtn').onclick = logout;
+
+function route(){
+  ['#loginView','#clientView','#adminView'].forEach(id => $(id).classList.add('hidden'));
+  $('#logoutBtn').classList.toggle('hidden', !session);
+  if (!session){ $('#who').textContent = ''; $('#loginView').classList.remove('hidden'); return; }
+  if (session.role === 'admin'){
+    $('#who').textContent = 'Administrator';
+    renderAdmin();
+    $('#adminView').classList.remove('hidden');
+  } else {
+    const c = DB.clients.find(x => x.id === session.id);
+    if (!c) return logout();
+    $('#who').textContent = c.company;
+    renderClient(c);
+    $('#clientView').classList.remove('hidden');
+  }
+}
+
+/* ---------- client dashboard ---------- */
+function renderClient(c){
+  const done = c.milestones.filter(m => m.done).length;
+  $('#clientView').innerHTML = `
+    <div class="glass hello view">
+      <div>
+        <span class="eyebrow">Welcome back</span>
+        <h2>Hello, <em>${esc(c.name)}</em></h2>
+        <p style="color:var(--m);margin-top:8px;font-size:15px">${esc(c.company)}</p>
+      </div>
+      <span class="pill ${c.progress >= 100 ? 'o' : ''}">${esc(c.status)}</span>
+    </div>
+    <div class="dash">
+      <div class="glass card c-proj view" style="--d:.1s">
+        <h3>${esc(c.project)}</h3>
+        <div class="big">${c.progress}%</div>
+        <p style="color:var(--m);font-size:14px;margin-top:6px">Overall progress</p>
+        <div class="bar"><i data-w="${c.progress}"></i></div>
+      </div>
+      <div class="glass card dark c-meet view" style="--d:.2s">
+        <h3>Next meeting</h3>
+        <div class="meet-date">${c.nextMeeting ? fmt(c.nextMeeting) : 'Not scheduled'}</div>
+        <p style="opacity:.6;font-size:14px;margin-top:10px">Project check-in call</p>
+      </div>
+      <div class="glass card c-ms view" style="--d:.3s">
+        <h3>Milestones · ${done}/${c.milestones.length}</h3>
+        <ul class="checks">
+          ${c.milestones.map(m => `<li><span class="dot ${m.done ? 'on' : ''}">${m.done ? '✓' : ''}</span><span class="${m.done ? 'done' : ''}">${esc(m.title)}</span></li>`).join('')}
+        </ul>
+      </div>
+      <div class="glass card c-up view" style="--d:.4s">
+        <h3>Latest updates</h3>
+        <div class="feed">
+          ${c.updates.length
+            ? [...c.updates].reverse().map(u => `<div><small>${fmt(u.date)}</small><p>${esc(u.text)}</p></div>`).join('')
+            : '<p style="color:var(--m)">No updates yet.</p>'}
+        </div>
+      </div>
+    </div>`;
+  setTimeout(() => { const b = $('#clientView .bar i'); if (b) b.style.width = c.progress + '%'; }, 200);
+}
+
+/* ---------- admin dashboard ---------- */
+function editor(c){
+  return `
+    ${draft ? '<div class="banner">Unsaved changes are stored in this browser. Export data.json and replace the file in your root folder to publish them.</div>' : ''}
+    <span class="eyebrow">Editing client</span>
+    <h2 style="font-size:30px">${esc(c.name)} <em>· ${esc(c.company)}</em></h2>
+    <div class="fields">
+      <label class="full">Project<input data-f="project" value="${esc(c.project)}"></label>
+      <label>Status<select data-f="status">${DB.statuses.map(s => `<option ${s === c.status ? 'selected' : ''}>${s}</option>`).join('')}</select></label>
+      <label>Next meeting<input type="date" data-f="nextMeeting" value="${esc(c.nextMeeting)}"></label>
+      <label class="full">Progress <b id="pv" style="color:var(--o)">${c.progress}%</b>
+        <input type="range" min="0" max="100" data-f="progress" value="${c.progress}" style="padding:0;accent-color:var(--o)"></label>
+    </div>
+    <h4>Milestones</h4>
+    ${c.milestones.map((m, i) => `
+      <div class="ms-row">
+        <input type="checkbox" data-ms="${i}" ${m.done ? 'checked' : ''}>
+        <span>${esc(m.title)}</span>
+        <button class="x" data-rm="${i}" title="Remove">✕</button>
+      </div>`).join('')}
+    <div class="row">
+      <input id="newMs" placeholder="New milestone">
+      <button class="btn btn-k" data-act="addMs">Add</button>
+    </div>
+    <h4>Post an update</h4>
+    <textarea id="newUp" placeholder="Progress update the client will see"></textarea>
+    <div class="row"><button class="btn btn-o" data-act="addUp">Post update</button></div>
+    <h4>Recent updates (${c.updates.length})</h4>
+    <div class="hist">${c.updates.length
+      ? [...c.updates].reverse().slice(0, 3).map(u => `${fmt(u.date)} — ${esc(u.text)}`).join('<br>')
+      : 'No updates yet.'}</div>`;
+}
+
+function renderAdmin(){
+  $('#adminView').innerHTML = `
+    <div class="a-head">
+      <div><span class="eyebrow">Admin dashboard</span><h2>Manage <em>client</em> dashboards</h2></div>
+      <div class="acts">
+        <button class="btn btn-line" data-act="discard">Discard draft</button>
+        <button class="btn btn-o" data-act="export">Export data.json</button>
+      </div>
+    </div>
+    <div class="a-grid">
+      <aside class="glass list">
+        ${DB.clients.map((c, i) => `
+          <button class="cl ${i === sel ? 'on' : ''}" data-sel="${i}">${esc(c.name)}
+            <span>${esc(c.company)} · ${c.progress}%</span></button>`).join('')}
+      </aside>
+      <div class="glass editor">${editor(DB.clients[sel])}</div>
+    </div>`;
+}
+
+$('#adminView').addEventListener('click', async e => {
+  const t = e.target;
+  const s = t.closest('[data-sel]');
+  if (s){ sel = +s.dataset.sel; renderAdmin(); return; }
+  const rm = t.closest('[data-rm]');
+  if (rm){
+    DB.clients[sel].milestones.splice(+rm.dataset.rm, 1);
+    save(); renderAdmin(); return;
+  }
+  const a = t.closest('[data-act]');
+  if (!a) return;
+  const c = DB.clients[sel];
+  switch (a.dataset.act){
+    case 'addMs': {
+      const v = $('#newMs').value.trim(); if (!v) return;
+      c.milestones.push({title:v, done:false}); save(); renderAdmin(); toast('Milestone added'); break;
+    }
+    case 'addUp': {
+      const v = $('#newUp').value.trim(); if (!v) return;
+      c.updates.push({date:new Date().toISOString().slice(0,10), text:v});
+      save(); renderAdmin(); toast('Update posted'); break;
+    }
+    case 'export': {
+      const blob = new Blob([JSON.stringify(DB, null, 2)], {type:'application/json'});
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob); link.download = 'data.json'; link.click();
+      toast('data.json exported. Replace the file in your root folder.'); break;
+    }
+    case 'discard': {
+      if (!confirm('Discard all unsaved changes and reload data.json?')) return;
+      localStorage.removeItem('dj_draft'); draft = false;
+      DB = await fetchData(); renderAdmin(); toast('Draft discarded'); break;
+    }
+  }
+});
+
+$('#adminView').addEventListener('change', e => {
+  const t = e.target, c = DB.clients[sel];
+  if (t.dataset.ms !== undefined){
+    c.milestones[+t.dataset.ms].done = t.checked;
+    save(); renderAdmin(); return;
+  }
+  if (t.dataset.f){
+    c[t.dataset.f] = t.dataset.f === 'progress' ? +t.value : t.value;
+    save(); toast('Saved to draft');
+  }
+});
+
+$('#adminView').addEventListener('input', e => {
+  const t = e.target;
+  if (t.dataset.f === 'progress'){
+    DB.clients[sel].progress = +t.value;
+    $('#pv').textContent = t.value + '%';
+    save();
+  }
+});
+
+boot();
+</script>
+</body>
+</html>
