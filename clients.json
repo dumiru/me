@@ -106,6 +106,22 @@
           "state": "todo"
         }
       ]
+    },
+    {
+      "username": "Arventics",
+      "password": "AV2026",
+      "firstName": "Mr. Ashen",
+      "fullName": "Mr. Ashen Bandara",
+      "company": "Arventics",
+      "balanceDue": 3500,
+      "nextDelivery": "OCT 18",
+      "nextMeeting": {
+        "date": "",
+        "time": "",
+        "note": ""
+      },
+      "projects": [],
+      "milestones": []
     }
   ]
 }
