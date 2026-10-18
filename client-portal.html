@@ -22,7 +22,7 @@
   <div class="login-box glass fade">
     <div class="logo">Dumiru <span>Jayasekara</span></div>
     <span class="eyebrow">Client Portal</span>
-    <p class="muted">Sign in with the username and password you received to view your project progress.</p>
+    <p class="muted">Sign in with the username and password you received.</p>
     <form id="loginForm" autocomplete="on">
       <div class="field">
         <label for="username">Username</label>
@@ -38,41 +38,21 @@
   </div>
 </section>
 
-<!-- OVERVIEW (read-only) -->
+<!-- NOTICE ONLY -->
 <main id="portal" class="hidden">
   <div class="welcome fade">
-    <span class="eyebrow">Overview</span>
+    <span class="eyebrow">Account notice</span>
     <h1 id="greeting"></h1>
     <p class="muted" id="company"></p>
   </div>
 
-  <div class="stats" id="stats"></div>
-
-  <div class="grid">
-    <section class="card fade d2">
-      <div class="head">
-        <h2>Active projects</h2>
-        <p class="muted">Current progress across your work</p>
-      </div>
-      <div id="projects"></div>
-    </section>
-
-    <div class="stack">
-      <section class="card meet fade d2">
-        <span class="eyebrow">Next meeting</span>
-        <div class="when" id="nextMeeting"></div>
-        <p class="muted" id="nextNote"></p>
-      </section>
-
-      <section class="card fade d3">
-        <div class="head">
-          <h2>Milestones</h2>
-          <p class="muted" id="milestoneSummary"></p>
-        </div>
-        <ol class="timeline" id="milestones"></ol>
-      </section>
-    </div>
-  </div>
+  <section class="card notice fade d2">
+    <span class="badge">Projects paused</span>
+    <h2>Work on your projects is temporarily paused</h2>
+    <p>Due to a device failure, all active projects are currently paused. We are not able to give a date for when work will resume, and we will not guess one.</p>
+    <p>We will contact you directly as soon as work restarts, and we will share an updated timeline at that point. We apologise for the disruption and thank you for your patience.</p>
+    <p class="contact">Questions: <a href="mailto:hello@dumiru.me">hello@dumiru.me</a></p>
+  </section>
 </main>
 
 <!-- Footer is injected here by layout.js -->

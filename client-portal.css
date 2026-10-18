@@ -176,3 +176,12 @@ h2{font-size:18px;margin-bottom:4px}
   .stats{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* PAUSE NOTICE */
+.notice{max-width:720px;padding:34px 32px}
+.notice .badge{margin-bottom:14px}
+.notice h2{font-size:22px;margin-bottom:14px}
+.notice p{color:var(--muted);margin-bottom:12px;line-height:1.7}
+.notice .contact{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink)}
+.notice .contact a{color:var(--orange)}
+@media (max-width:720px){.notice{padding:24px 20px}}
