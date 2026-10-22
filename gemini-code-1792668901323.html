@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mozes - Subscription Checkout</title>
+
+    <!-- 1. Paddle.js v2 SDK -->
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #FAFAFA;
+            color: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .pricing-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 40px 32px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #FFF1F1;
+            color: #E70000;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .pricing-card p.desc {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.5;
+            margin-bottom: 28px;
+        }
+
+        .subscribe-btn {
+            background-color: #E70000;
+            color: #FFFFFF;
+            border: none;
+            padding: 16px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .subscribe-btn:hover {
+            background-color: #C40000;
+        }
+
+        .subscribe-btn:active {
+            transform: scale(0.98);
+        }
+
+        .security-text {
+            font-size: 12px;
+            color: #9CA3AF;
+            margin-top: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pricing-card">
+        <span class="badge">Monthly Membership</span>
+        <h2>Design Subscription</h2>
+        <p class="desc">Automated monthly access to dedicated visual & video motion graphics support.</p>
+        
+        <!-- Subscribe Button -->
+        <button class="subscribe-btn" onclick="openCheckout()">Subscribe Now</button>
+
+        <p class="security-text">🔒 Secured by Paddle • Cards, Apple Pay & Google Pay</p>
+    </div>
+
+    <script>
+        // 2. Initialize Paddle with correct Client-side Token
+        Paddle.Environment.set('production');
+
+        Paddle.Setup({ 
+            token: "live_24a0f19e35c2689ab7d277bfd3c" 
+        });
+
+        // 3. Open Paddle Overlay Checkout
+        function openCheckout() {
+            Paddle.Checkout.open({
+                items: [
+                    {
+                        priceId: 'pro_01m5hnqfdb8zjq7wexcaq2dn8p',
+                        quantity: 1
+                    }
+                ],
+                settings: {
+                    displayMode: "overlay",
+                    theme: "light",
+                    locale: "en"
+                },
+                eventCallback: function(data) {
+                    if (data.name === "checkout.completed") {
+                        console.log("Payment successful!", data);
+                        window.location.href = "/dashboard.html";
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
